@@ -31,7 +31,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'simple_form'
+gem 'devise'
+gem 'carrierwave', '~> 1.0'
+gem  'figaro'
+gem 'fog-aws'
+gem 'mini_magick'
+gem 'carrierwave-aws'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -58,11 +64,3 @@ gem 'bootstrap', '4.0.0.alpha6'
 source 'http://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
-
-gem 'simple_form'
-gem 'devise'
-gem 'carrierwave', '~> 1.0'
-gem  'figaro'
-gem 'fog-aws'
-gem 'mini_magick'
-gem 'carrierwave-aws'

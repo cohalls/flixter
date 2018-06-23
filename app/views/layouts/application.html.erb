@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://vjs.zencdn.net/7.0.3/video-js.css" rel="stylesheet">
   </head>
 
   <body>
@@ -23,15 +24,20 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-      </li>
-      <li class="nav-item ml-auto">
+      <% if !current_user %>
+        <li class="nav-item">
+          <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item ml-auto">
           <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
-      </li>
+        </li>
+      <% end %>
+
+        <% if current_user %>
+        <li class="nav-item">
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+        <% end %>
     </ul>
   </div>
 </nav>
@@ -53,5 +59,7 @@
       <%= link_to 'Teach a Course', new_instructor_course_path %>
     </div>
   </div>
+  <script src="http://vjs.zencdn.net/5.12.6/video.js"></script>
+  <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
   </body>
 </html>
